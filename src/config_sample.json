@@ -1,0 +1,25 @@
+{
+    "db": {
+        "host": "DB_HOST_AS_STRING",
+        "port": "DB_PORT_AS_UNSIGNED_INTEGER",
+        "user": "DB_USER_AS_STRING",
+        "pw": "DB_PASSWORD_AS_STRING",
+        "db_name": "DB_NAME_AS_STRING"
+    },
+    "server": {
+        "port": "LISTENING_PORT_AS_UNSIGNED_INTEGER"        
+    },
+    "jwt": {
+        "secretKey": "JWT_SECRET_AS_STRING",
+        "options": {
+            "algorithm": "HS256",
+            "expiresIn": "7d",
+            "issuer": "const"
+        },
+        "refreshOptions": {
+            "algorithm": "HS256",
+            "expiresIn": "14d",
+            "issuer": "const"
+        }
+    }
+}
