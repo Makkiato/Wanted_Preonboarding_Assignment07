@@ -2,9 +2,9 @@ const jsonwebtoken = require('jsonwebtoken');
 const config = require('../../config.json')
 
 module.exports = {
-    sign : user => {
+    sign : userId => {
         const payload = {
-            userId : user.id
+            userId : userId
         };
 
         const token = jsonwebtoken.sign(payload, config.jwt.secretKey, config.jwt.options)

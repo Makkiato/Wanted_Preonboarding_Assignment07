@@ -7,18 +7,19 @@
         "db_name": "DB_NAME_AS_STRING"
     },
     "server": {
-        "port": "LISTENING_PORT_AS_UNSIGNED_INTEGER"        
+        "port": "LISTENING_PORT_AS_UNSIGNED_INTEGER",
+        "cookieField": "NAME_OF_JWT_HEADER_COOKIE_FIELD_AS_STRING"
     },
     "jwt": {
         "secretKey": "JWT_SECRET_AS_STRING",
         "options": {
             "algorithm": "HS256",
-            "expiresIn": "7d",
+            "expiresIn": "1d",
             "issuer": "const"
         },
         "refreshOptions": {
             "algorithm": "HS256",
-            "expiresIn": "14d",
+            "expiresIn": "1d",
             "issuer": "const"
         }
     }

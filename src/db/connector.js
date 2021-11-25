@@ -31,37 +31,23 @@ const initDB = () => {
 
         try {
             await db.sync()
-            console.log(Object.keys(db))
-            console.log(db.models.users)
             db.predefinedQuery = query(db)
-            //console.log('showMetadata : ', await db.predefinedQuery.showMetadata())
-            //console.log('insertUser : ', await db.predefinedQuery.insertUser("test","test"))
-            //console.log('validateUser : ', await db.predefinedQuery.validateUser("test","test"))
-            //console.log('insertTrim : ', await db.predefinedQuery.insertTrim("123/45A67","987/65B43"))
-            //console.log('insertTrim : ', await db.predefinedQuery.showAllTrim())
-            //console.log('insertUserTrim : ', await db.predefinedQuery.insertUserTrim("test", 2))
-            //console.log('showUserTrim : ', await db.predefinedQuery.showUserTrim("test"))
             connector = db
             resolve(connector)
         } catch (err) {
+            console.log(err)
             reject(err)
         }
     })
 }
 
-const getConnector = () => {
-    return new Promise(async (resolve, reject) => {
-        if (connector) {
-            resolve(connector)
-        } else {
-            try {
-                resolve (await initDB())
-            } catch (err) {
-                reject(err)
-            }
-        }
+const getConnector = async () => {
 
-    })
+    if (connector) {
+        return connector
+    } else {
+        return await initDB()
+    }
 }
 
 

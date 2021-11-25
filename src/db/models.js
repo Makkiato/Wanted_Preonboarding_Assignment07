@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             autoIncrement: true,            
         },
-        manufactuerer : {
+        manufacturer : {
             type: DataTypes.STRING,
             allowNull: false,
         },
