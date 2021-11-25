@@ -16,8 +16,15 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER.UNSIGNED,
             primaryKey: true,
             allowNull: false,
-            autoIncrement: true,
-            
+            autoIncrement: true,            
+        },
+        manufactuerer : {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        name : {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         front_width: {
             type: DataTypes.INTEGER,
