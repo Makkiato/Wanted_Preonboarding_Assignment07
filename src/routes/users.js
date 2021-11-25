@@ -3,59 +3,56 @@ var router = express.Router();
 var db = require('../db/connector')
 const jwt = require('./utils/jwt')
 const config = require('../config.json')
+const message = require('./utils/message.json')
 
-
-/**
- *  회원가입 
- */
 router.post('/', async (req, res) => {
     let connector = await db.getConnector()
 
     if (!req.body.id || !req.body.pw) {
-        return res.status(400).send()
+        return res.status(400).send({message : message.error.notEnoughInfo})
     }
     try {
         let result = await connector.predefinedQuery.insertUser(req.body.id, req.body.pw)
         delete result.type
-        return res
-            .status(200)
-            .send();
-    } catch (err) {
-        if (err.value) {
-            if (err.value == 'ER_DUP_ENTRY') {
-                // 이미 존재하는 사용자입니다.
-                return res
-                    .status(400)
-                    .send()
-            }
+
+        if (result.value) {
+            // 회원가입 성공
+            return res
+                .status(200)
+                .send();
+        } else {
+            // 이미 존재하는 사용자
+            return res
+                .status(400)
+                .send({message : message.error.userAlreadyExists})
         }
+
+    } catch (err) {
         return res
             .status(500)
-            .send();
+            .send({message : message.error.etc});
 
 
 
     }
 })
 
-/**
- *  로그인 
- */
 router.post('/token', async (req, res) => {
     let connector = await db.getConnector()
 
     if (!req.body.id || !req.body.pw) {
         return res
             .status(400)
-            .send()
+            .send({message : message.error.notEnoughInfo})
     }
     try {
         let validation = await connector.predefinedQuery.validateUser(req.body.id, req.body.pw)
 
         if (!validation.value) {
+            // 등록정보 없음
             return res
                 .status(404)
-                .send()
+                .send({message : message.error.userNotExists})
         }
 
         const token = jwt.sign(req.body.id)
@@ -67,14 +64,14 @@ router.post('/token', async (req, res) => {
         };
 
         return res
-            .cookie(config.server.cookieField, token.accessToken, cookieOption)            
+            .cookie(config.server.cookieField, token.accessToken, cookieOption)
             .status(200)
             .send()
     }
     catch (err) {
         return res
             .status(500)
-            .send()
+            .send({message : message.error.etc})
     }
 })
 

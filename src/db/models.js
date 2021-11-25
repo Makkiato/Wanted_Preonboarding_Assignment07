@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER.UNSIGNED,
             primaryKey: true,
             allowNull: false,
-            autoIncrement: true,            
+            autoIncrement: false,            
         },
         manufacturer : {
             type: DataTypes.STRING,
@@ -25,6 +25,11 @@ module.exports = (sequelize, DataTypes) => {
         name : {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        front_prefix: {
+            type: DataTypes.STRING(10),
+            allowNull: false,
+            defaultValue: ''
         },
         front_width: {
             type: DataTypes.INTEGER,
@@ -35,12 +40,17 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         front_type: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(10),
             allowNull: false,
         },
         front_wheel: {
             type: DataTypes.INTEGER,
             allowNull: false,
+        },
+        rear_prefix: {
+            type: DataTypes.STRING(10),
+            allowNull: false,
+            defaultValue: '',
         },
         rear_width: {
             type: DataTypes.INTEGER,
@@ -58,9 +68,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-    }, { timestamps: false })
-
-    
+    }, { timestamps: false })    
 
     const user_trim = sequelize.define('user_trim', {
 

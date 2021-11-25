@@ -8,7 +8,11 @@
     },
     "server": {
         "port": "LISTENING_PORT_AS_UNSIGNED_INTEGER",
-        "cookieField": "NAME_OF_JWT_HEADER_COOKIE_FIELD_AS_STRING"
+        "cookieField": "NAME_OF_JWT_HEADER_COOKIE_FIELD_AS_STRING",
+        "pageIndexDefault" : "DEFAULT_PAGINATION_BASE_INDEX_AS_UNSIGNED_INTEGER",
+        "pageSizeDefault" : "DEFAULT_PAGINATION_SIZE_AS_UNSIGNED_INTEGER",
+        "maximumUserTrimRequestSize" : "DEFAULT_USER_TRIM_ASSOCIATION_REQUEST_SIZE_AS_UNSIGNED_INTEGER",
+        "trimRegex" : "(?<prefix>[a-zA-Z])*(?<width>[0-9]+)\\s*\\/\\s*(?<aspect>[0-9]+)\\s*\/*\\s*(?<type>[a-zA-Z]+)\\s*(?<wheel>[0-9]+)\\s*"
     },
     "jwt": {
         "secretKey": "JWT_SECRET_AS_STRING",
@@ -22,5 +26,11 @@
             "expiresIn": "1d",
             "issuer": "const"
         }
+    },
+    "cardoc": {
+        "hostname": "CARDOC_API_HOSTNAME_AS_STRING",
+        "port": "CARDOC_API_PORT_AS_UNSIGNED_INTEGER",
+        "path": "CARDOC_API_URI_PATH_AS_STRING",
+        "method": "CARDOC_API_HTTP_METHOD_AS_STRING"
     }
 }

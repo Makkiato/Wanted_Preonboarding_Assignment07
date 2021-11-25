@@ -7,7 +7,6 @@ router.get('/', function(req, res, next) {
   res.status(200).send();
 });
 
-
 /**
  * 메타데이터
  *    현재 DB에 저장된 user, trim의 갯수를 알려줌.
@@ -16,7 +15,7 @@ router.get('/', function(req, res, next) {
 router.get('/metadata', async function(req, res, next) {  
   let connector = await db.getConnector()
   
-  res.status(200).send(await connector.predefinedQuery.showMetadata());
+  res.status(200).send((await connector.predefinedQuery.showMetadata()).value);
 });
 
 module.exports = router;

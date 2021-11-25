@@ -8,8 +8,7 @@ module.exports = {
         };
 
         const token = jsonwebtoken.sign(payload, config.jwt.secretKey, config.jwt.options)
-        const decrypt =  jsonwebtoken.verify(token, config.jwt.secretKey)
-        
+        const decrypt =  jsonwebtoken.verify(token, config.jwt.secretKey)        
 
         const result = {
             accessToken: token,

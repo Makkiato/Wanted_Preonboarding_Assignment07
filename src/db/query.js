@@ -1,25 +1,27 @@
 const sequelize = require('sequelize')
 const Op = sequelize.Op
+const config = require('../config.json')
 
 module.exports = (db) => {
-
     const insertUser = (id, pw) => {
         return new Promise(async (resolve, reject) => {
             try {
-                const newUser = await db.models.users.create({
-                    id: id,
-                    pw: pw
+                const newUser = await db.models.users.findCreateFind({
+                    where: {
+                        [Op.and]: [
+                            { id: id }
+                        ]
+                    },
+                    defaults: {
+                        id: id,
+                        pw: pw,
+                    }
+
                 })
 
-                resolve({ type: 'insert', value: true })
+                resolve({ type: 'insert', value: newUser[1] })
             } catch (err) {
-                console.log(err)
-                if (err.parent.code == 'ER_DUP_ENTRY') {
-                    // 이미 존재하는 사용자입니다.
-                    reject({ type: 'insert', value: err })
-                } else {
-                    reject(err)
-                }
+                reject(err)
             }
         })
     }
@@ -38,7 +40,6 @@ module.exports = (db) => {
 
                 resolve({ type: 'select', value: validated })
             } catch (err) {
-                console.log(err)
                 reject({ type: 'select', value: err })
             }
         })
@@ -57,15 +58,14 @@ module.exports = (db) => {
 
                 resolve({ type: 'select', value: exists })
             } catch (err) {
-                console.log(err)
                 reject({ type: 'select', value: err })
             }
         })
     }
 
-    const insertTrim = (manufacturer, name, front, rear) => {
+    const insertTrim = (id, manufacturer, name, front, rear) => {
         return new Promise(async (resolve, reject) => {
-            const regexCheck = new RegExp(/(?<width>[0-9]+)+\/(?<aspect>[0-9]+)+(?<type>\w)(?<wheel>[0-9]+)+/)
+            const regexCheck = new RegExp(config.server.trimRegex)
 
             let regFront = regexCheck.exec(front)
             let regRear = regexCheck.exec(rear)
@@ -75,32 +75,40 @@ module.exports = (db) => {
             }
 
             try {
-                const newTrim = await db.models.trims.create({
-                    manufacturer: manufacturer,
-                    name: name,
+                const newTrim = await db.models.trims.findCreateFind({
+                    where: {
+                        [Op.and]: [
+                            { id: id }
+                        ]
+                    },
+                    defaults: {
+                        id: id,                                        // 카닥 API에서 불러올때만 지정됨
 
-                    front_width: regFront.groups.width,
-                    front_aspect: regFront.groups.aspect,
-                    front_type: regFront.groups.type,
-                    front_wheel: regFront.groups.wheel,
+                        manufacturer: manufacturer,
+                        name: name,
 
-                    rear_width: regRear.groups.width,
-                    rear_aspect: regRear.groups.aspect,
-                    rear_type: regRear.groups.type,
-                    rear_wheel: regRear.groups.wheel,
+                        front_prefix: regFront.groups.prefix,
+                        front_width: regFront.groups.width,
+                        front_aspect: regFront.groups.aspect,
+                        front_type: regFront.groups.type,
+                        front_wheel: regFront.groups.wheel,
+
+                        rear_prefix: regFront.groups.prefix,
+                        rear_width: regRear.groups.width,
+                        rear_aspect: regRear.groups.aspect,
+                        rear_type: regRear.groups.type,
+                        rear_wheel: regRear.groups.wheel,
+                    }
                 })
 
-                resolve({ type: 'insert', value: newTrim.id })
+                resolve({ type: 'insert', value: newTrim[1] })
             } catch (err) {
-                console.log(err)
                 reject({ type: 'insert', value: err })
-
             }
         })
-
     }
 
-    const showAllTrim = (page = 1, size = 10) => {
+    const showAllTrim = (page, size) => {
         return new Promise(async (resolve, reject) => {
             try {
                 const allTrim = await db.models.trims
@@ -111,6 +119,7 @@ module.exports = (db) => {
                             'name',
                             [sequelize.fn(
                                 'CONCAT',
+                                sequelize.col('front_prefix'),
                                 sequelize.col('front_width'),
                                 '/',
                                 sequelize.col('front_aspect'),
@@ -119,6 +128,7 @@ module.exports = (db) => {
                             ), 'front'],
                             [sequelize.fn(
                                 'CONCAT',
+                                sequelize.col('rear_prefix'),
                                 sequelize.col('rear_width'),
                                 '/',
                                 sequelize.col('rear_aspect'),
@@ -128,11 +138,11 @@ module.exports = (db) => {
                         ],
                         order: [['id', 'ASC']],
                         limit: size,
-                        offset: (page - 1) * size
+                        offset: (page - 1) * size,
                     })
+
                 resolve({ type: 'select', value: allTrim.map(record => record.toJSON()) })
             } catch (err) {
-                console.log(err)
                 reject({ type: 'select', value: err })
             }
         })
@@ -170,7 +180,6 @@ module.exports = (db) => {
 
                 resolve({ type: 'select', value: targetTrim })
             } catch (err) {
-                console.log(err)
                 reject({ type: 'insert', value: err })
             }
         })
@@ -227,7 +236,7 @@ module.exports = (db) => {
                     ],
                     order: [['id', 'ASC']],
                     limit: size,
-                    offset: (page - 1) * size
+                    offset: (page - 1) * size,
                 })
 
                 resolve({ type: 'insert', value: userTrim.map(record => record.toJSON()) })

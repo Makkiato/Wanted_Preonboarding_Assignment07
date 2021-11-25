@@ -6,7 +6,6 @@ const query = require('./query')
 let connector = undefined;
 
 const initDB = () => {
-    console.log('initDB')
     return new Promise(async (resolve, reject) => {
         let db = new sequelize(
             config.db.db_name,
@@ -19,7 +18,6 @@ const initDB = () => {
                 logging: process.env.NODE_ENV == 'development',
             }
         )
-
 
         let model = models(db, sequelize.DataTypes)
 
@@ -35,21 +33,17 @@ const initDB = () => {
             connector = db
             resolve(connector)
         } catch (err) {
-            console.log(err)
             reject(err)
         }
     })
 }
 
 const getConnector = async () => {
-
     if (connector) {
         return connector
     } else {
         return await initDB()
     }
 }
-
-
 
 module.exports.getConnector = getConnector
