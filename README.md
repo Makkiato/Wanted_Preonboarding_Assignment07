@@ -17,8 +17,8 @@
 <div align=center>
 
 <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" />
-<img alt="Hits" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FAnother-Glass%2FAssignment1_Team1%2Fblob%2Fdevelop%2FREADME.md&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" />
-<img alt="issues" src="https://img.shields.io/github/issues/Another-Glass/Assignment1_Team1" />
+<img alt="Hits" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FMakkiato%2FWanted_Preonboarding_Assignment07%2Fblob%2Fdevelop%2FREADME.md&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" />
+<img alt="issues" src="https://img.shields.io/github/issues/Makkiato/Wanted_Preonboarding_Assignment07" />
 
 
 </div>
@@ -32,10 +32,10 @@
 
 ## 🎤 개요
 
-이 레포지토리는 [원티드 프리온보딩 백엔드 코스](https://www.wanted.co.kr/events/pre_onboarding_course_4) 4차 과제를 위해 만들어졌습니다. 
+이 레포지토리는 [원티드 프리온보딩 백엔드 코스](https://www.wanted.co.kr/events/pre_onboarding_course_4) 7차 과제를 위해 만들어졌습니다. 
 
 -   일정 : 2021년 11월 22일(월) 오후 6시 ~ 11월 29일(월) 오후 2시
-
+- 회고 : [프로젝트 회고](https://makkiato.tistory.com/11)   
 <br>
 <br>
 
@@ -60,14 +60,14 @@
 |--|--|--|--|
 | 2015<br>~<br>2019 | 동아리 | 한양대학교 정보통신처 학생보안팀 ICEWALL |1년 2회 교내 서버 보안점검, Codegate conference 참여, 모의 해킹 실습, CTF 참여|
 | 2017 | 교육 | 국방부,nipa,과학기술정보통신부 주관 국방오픈소스아카데미 |nodejs를 이용한 backend 프로그램과 android application을 frontend client로 이용하는 서비스 전체를 개발한다.|
-|2019|대회|슈퍼챌린지해커톤 우수상,최고기술상|해커톤에서는 해양쓰레기 감지 프레임워크 "Puring" 프로젝트에서 IoT 네트워크, RDBMS, Web FE 개발 역할을 했습니다. 이 프로젝트에서 async nio http 서버클라이언트 통신과 연결후 불안정한 환경이 상정된 MCU에서 http socket으로 정확한 파일전송을 보장하는 양방향 파일 전송 프로토콜을 개발해 적용했습니다.|
+|2019|대회|슈퍼챌린지해커톤 우수상,최고기술상|해커톤에서는 해양쓰레기 감지 프레임워크 "Puring" 프로젝트에서 IoT 네트워크, RDBMS, Web FE 개발 역할을 했습니다. 이 프로젝트에서 async nio http 서버클라이언트 통신과 연결후 불안정한 환경이 상정된 MCU에서 http socket으로 정확한 파일전송을 보장하는 양방향 파일 전송 프로토콜을 개발해 적용했습니다.<br><br>[Github](https://github.com/Makkiato/Puring)|
 |2021|MIR-LAB 연구원<br>교내 졸업과제|오픈소스(FIWARE)를 활용한 Smart City Management Framework 구축|프로젝트에서는 IoT 네트워크, Framework, Web FE, Fiware NGSIv2 API implementation 역할을 담당하여 IoT 프로토콜을 이용하는 network를 대규모 multiplex가 가능하도록 설계하고 framework화 하고 있으며, 이를 Fiware NGSIv2 RESTful API를 통해 공적자원으로 등록, 업데이트, 제거, 구독하고 Web FE를 통해 공적자원을 활용, 자원 소유자에게 요청하는 과정을 개발했습니다. <br>이 과정에서 Node.js와 MQTT, CoAP 프로토콜 모듈을 이용해 IoT 네트워크를 구성했고, Fiware 실행 환경을 구성하고 가동하는데 Docker를 이용했습니다. 그리고 Web FE를 구성하는데 expressjs와 pug를 활용, websocket으로 자원 소유자에게 요청하는 route를 구성했습니다.<br><br>[Github](https://github.com/Makkiato/GraduationProject)|
 |2021|학위|한양대학교 컴퓨터소프트웨어학부 학사||
 |2021.02<br>~<br>2021.10|경력|주식회사 노크톡<br>연구개발부서 담당자|<h3>장치와의 블루투스 연결 및 초기설정 자동,간소화</h3>Android, iOS 네이티브 API 활용과 Bluetooth GATT 스택<br><br><h3>모바일 클라이언트 개발 및 유지보수</h3>메세지 중개 서버에 대한 안드로이드, iOS 클라이언트.<br>Google Firebase Analytics, Crashlytics<br>[안드로이드 리팩토링 Github](https://github.com/Makkiato/KeyfreecarAPI)<br><br><h3>서버 구축, 운영 및 유지보수</h3>사제 원격시동 장치의 메세지 중개 서버(AWS EC2 Nodejs(Express), Websocket, MQTT) 및 사용기록 DB(AWS RDS MariaDB) 개발,운영,보수|
 |2021| 교육 |원티드-위코드 프리온보딩 백엔드 과정|[Team Organization](https://github.com/Another-Glass)|
 
 
-[프로젝트 회고](https://makkiato.tistory.com/8)                       
+                    
 
 
 </div>
@@ -240,13 +240,64 @@
 
 - 레포지토리를 clone 받거나, 압축을 해제한 후 npm install을 통해 환경 셋팅을 진행합니다.
 - npm start를 통해 서버를 구동합니다.
-- src 폴더에 config_sample.json 파일을 참조해, config.json을 설정합니다.
+- src 폴더에 config_sample.json 파일을 참조해, config.json을 설정합니다.(하단 참조)
 - npm start로 서버를 구동시킵니다.
 
+- config_sample.json에 포함되지 않은 credential(privilege 조정 완료)
+<br>
+
+  ``` json
+  {
+    "db": {
+        "host": "wanted-preonboarding-be.cr2jy0kbzo7o.ap-northeast-2.rds.amazonaws.com",
+        "port": 3306,
+        "user": "Assignment07",
+        "pw": "ass07",
+        "db_name": "Assignment07"
+    },
+    "server": {
+        "port": 3000,
+        "cookieField": "MAKKIATO_JWT",
+        "pageIndexDefault": 1,
+        "pageSizeDefault": 10,
+        "maximumUserTrimRequestSize": 5,
+        "trimRegex" : "(?<prefix>[a-zA-Z])*(?<width>[0-9]+)\\s*\\/\\s*(?<aspect>[0-9]+)\\s*\/*\\s*(?<type>[a-zA-Z]+)\\s*(?<wheel>[0-9]+)\\s*"
+    },
+    "jwt": {
+        "secretKey": "MAKKIATO_SECRET",
+        "options": {
+            "algorithm": "HS256",
+            "expiresIn": "1d",
+            "issuer": "const"
+        },
+        "refreshOptions": {
+            "algorithm": "HS256",
+            "expiresIn": "1d",
+            "issuer": "const"
+        }
+    },
+    "cardoc": {
+        "hostname": "dev.mycar.cardoc.co.kr",
+        "port": 443,
+        "path": "/v1/trim",
+        "method": "GET"
+    }
+  }
+  ```
+
 
 </br>
 </br>
 
+## 📜 서버 구조 및 디자인 패턴에 대한 개략적인 설명
+
+![](https://user-images.githubusercontent.com/32833404/143541802-169683d7-ecbe-4f51-9dc2-dffccc22f3e3.png)
+- [상세 및 각 API별 흐름 보기](https://docs.google.com/presentation/d/1ux1Cko9a9QXgSw-y24DIW0tFMLAqBNoO8wNsIBX0Ojg/edit?usp=sharing)
+- Express에서 지원 하는 Middleware를 이용한 pipeline 적용했다.
+- DB는 이후 다른 Route나 Module에서도 동일한 접속 옵션을 활용하기 편하도록 Singleton을 적용했다.
+- 인증 정보 처리 또한, 별도의 Route에서 매번 검증 로직을 추가할 필요 없이 Cookie를 통해 자동으로 전송되고, Auth Middleware를 통해 자동으로 처리한다.
+<br>
+<br>
 
 ## 🗂 과제 확인 및 평가 API 명세서
 
