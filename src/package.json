@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "set NODE_ENV=production&set DEBUG=src*& node ./bin/www",
-    "debug": "set NODE_ENV=development&set DEBUG=src*& node ./bin/www"
+    "start": "set NODE_ENV=production&set DEBUG=src*& node ./bin/www.js",
+    "debug": "set NODE_ENV=development&set DEBUG=src*& node ./bin/www.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
